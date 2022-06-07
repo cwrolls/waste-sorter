@@ -1,0 +1,26 @@
+PODS:
+  - Gifu (3.2.0)
+  - NVActivityIndicatorView (4.8.0):
+    - NVActivityIndicatorView/Presenter (= 4.8.0)
+  - NVActivityIndicatorView/Presenter (4.8.0)
+  - SimpleAlert (3.1.2)
+
+DEPENDENCIES:
+  - Gifu
+  - NVActivityIndicatorView
+  - SimpleAlert (~> 3.0)
+
+SPEC REPOS:
+  trunk:
+    - Gifu
+    - NVActivityIndicatorView
+    - SimpleAlert
+
+SPEC CHECKSUMS:
+  Gifu: 7bcb6427457d85e0b4dff5a84ec5947ac19a93ea
+  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
+  SimpleAlert: 84f3a7d4f9950ce401eedc56c1d0f01df2c87d91
+
+PODFILE CHECKSUM: 6d4a5747dbbd5c1f61acef4bfd43e96975b53454
+
+COCOAPODS: 1.8.4

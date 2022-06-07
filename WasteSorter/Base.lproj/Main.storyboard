@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tOq-kl-ZLC">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main-->
+        <scene sceneID="zHG-c9-F2T">
+            <objects>
+                <viewController storyboardIdentifier="viewControllerMain" title="Main" id="tOq-kl-ZLC" customClass="ViewControllerMain" customModule="WasteSorter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oNR-s4-VNF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="gifView" image="EarthWhite.gif" translatesAutoresizingMaskIntoConstraints="NO" id="SIx-fQ-uzi" customClass="GIFImageView" customModule="Gifu">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <button opaque="NO" alpha="0.46999999999999997" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4IO-zC-mA4">
+                                <rect key="frame" x="177" y="697" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="gib-W1-F8W"/>
+                                    <constraint firstAttribute="width" constant="60" id="iby-5E-N0Z"/>
+                                </constraints>
+                                <state key="normal" image="info"/>
+                                <connections>
+                                    <action selector="infoClicked:" destination="tOq-kl-ZLC" eventType="touchUpInside" id="IPa-mn-9LV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe Left to Access Waste Classifier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNW-bg-n3a" userLabel="Directions">
+                                <rect key="frame" x="40" y="847" width="334" height="15"/>
+                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NG6-Yf-1hm">
+                                <rect key="frame" x="20" y="44" width="374" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="iYW-cR-8De"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="scoreBox" image="score" translatesAutoresizingMaskIntoConstraints="NO" id="SP1-dh-kb5" userLabel="scoreBox">
+                                <rect key="frame" x="116" y="91" width="182" height="98"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="98" id="kRz-Ja-Xys"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="score" text="67%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etk-4g-aGx" userLabel="score">
+                                <rect key="frame" x="175" y="135" width="64" height="35"/>
+                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7Ki-Of-trO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="NG6-Yf-1hm" firstAttribute="centerX" secondItem="4IO-zC-mA4" secondAttribute="centerX" id="1EY-z1-MZt"/>
+                            <constraint firstItem="DNW-bg-n3a" firstAttribute="centerX" secondItem="4IO-zC-mA4" secondAttribute="centerX" id="4yX-Ls-owN"/>
+                            <constraint firstItem="DNW-bg-n3a" firstAttribute="bottom" secondItem="7Ki-Of-trO" secondAttribute="bottom" id="HpZ-TX-Mzf"/>
+                            <constraint firstItem="NG6-Yf-1hm" firstAttribute="top" secondItem="7Ki-Of-trO" secondAttribute="top" id="IdP-Oi-A3g"/>
+                            <constraint firstItem="NG6-Yf-1hm" firstAttribute="centerX" secondItem="SP1-dh-kb5" secondAttribute="centerX" id="NZu-8R-PHN"/>
+                            <constraint firstItem="etk-4g-aGx" firstAttribute="top" secondItem="NG6-Yf-1hm" secondAttribute="bottom" constant="40" id="OTL-6j-rPH"/>
+                            <constraint firstItem="4IO-zC-mA4" firstAttribute="bottom" secondItem="7Ki-Of-trO" secondAttribute="bottom" constant="-105" id="XTc-RR-2XV"/>
+                            <constraint firstItem="SP1-dh-kb5" firstAttribute="leading" secondItem="7Ki-Of-trO" secondAttribute="leading" constant="116" id="Zcy-BM-QAU"/>
+                            <constraint firstItem="etk-4g-aGx" firstAttribute="centerX" secondItem="SP1-dh-kb5" secondAttribute="centerX" id="ewO-3i-xyW"/>
+                            <constraint firstItem="SIx-fQ-uzi" firstAttribute="top" secondItem="oNR-s4-VNF" secondAttribute="topMargin" constant="-44" id="hmI-7A-cF1"/>
+                            <constraint firstItem="NG6-Yf-1hm" firstAttribute="leading" secondItem="oNR-s4-VNF" secondAttribute="leadingMargin" id="ljF-Ze-zZL"/>
+                            <constraint firstItem="SIx-fQ-uzi" firstAttribute="leading" secondItem="7Ki-Of-trO" secondAttribute="leading" id="pEv-Pq-a9A"/>
+                            <constraint firstItem="SIx-fQ-uzi" firstAttribute="centerY" secondItem="oNR-s4-VNF" secondAttribute="centerY" id="t0C-Ip-l4p"/>
+                            <constraint firstItem="SP1-dh-kb5" firstAttribute="top" secondItem="7Ki-Of-trO" secondAttribute="top" constant="47" id="uia-xK-was"/>
+                            <constraint firstItem="SIx-fQ-uzi" firstAttribute="centerX" secondItem="oNR-s4-VNF" secondAttribute="centerX" id="yZy-UB-zA5"/>
+                            <constraint firstItem="4IO-zC-mA4" firstAttribute="centerX" secondItem="oNR-s4-VNF" secondAttribute="centerX" id="zOt-1O-Yvo"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Fn7-XZ-SLb" appends="YES" id="ygI-0l-Zw9"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="TUN-UV-2De"/>
+                    <connections>
+                        <outlet property="directions" destination="DNW-bg-n3a" id="jI7-n9-POZ"/>
+                        <outlet property="gradientBar" destination="NG6-Yf-1hm" id="iqa-0J-O6G"/>
+                        <outlet property="infoBottom" destination="XTc-RR-2XV" id="wqV-Kf-ba8"/>
+                        <outlet property="infoButton" destination="4IO-zC-mA4" id="1bw-hM-V2i"/>
+                        <outlet property="scoreBox" destination="SP1-dh-kb5" id="3Z9-RH-NJ5"/>
+                        <outlet property="trashScore" destination="etk-4g-aGx" id="XPi-cD-ahO"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toSecond" id="2iK-fm-n3D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cqr-SD-JRI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="Fn7-XZ-SLb">
+                    <connections>
+                        <action selector="swipeLeft:" destination="tOq-kl-ZLC" id="8NT-Ez-IEL"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-646.37681159420299" y="132.58928571428572"/>
+        </scene>
+        <!--WasteClassifier-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="WasteClassifier" id="BYZ-38-t0r" customClass="ViewController" customModule="WasteSorter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.59999999999999998" contentMode="scaleAspectFill" restorationIdentifier="classifer" translatesAutoresizingMaskIntoConstraints="NO" id="O8C-lw-9Gc" customClass="UIImageView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mGE-yh-rfM" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                        <rect key="frame" x="154.66666666666666" y="365.66666666666669" width="104.99999999999997" height="111"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="105" id="D2Y-zu-LQH"/>
+                                            <constraint firstAttribute="height" constant="111" id="d1F-bW-Ah4"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use the camera button below to take a picture of your trash, and we will tell you how to sort it." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiE-sx-4un" userLabel="Directions">
+                                        <rect key="frame" x="44" y="397" width="326" height="136"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="mGE-yh-rfM" firstAttribute="centerY" secondItem="O8C-lw-9Gc" secondAttribute="centerY" id="5bc-ZS-Cnb"/>
+                                    <constraint firstItem="kiE-sx-4un" firstAttribute="leading" secondItem="O8C-lw-9Gc" secondAttribute="leadingMargin" constant="36" id="Qdv-Ya-yoP"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="kiE-sx-4un" secondAttribute="trailing" constant="36" id="lGf-3S-c9v"/>
+                                    <constraint firstItem="kiE-sx-4un" firstAttribute="top" secondItem="O8C-lw-9Gc" secondAttribute="topMargin" constant="345" id="mPJ-kb-0Pt"/>
+                                    <constraint firstItem="kiE-sx-4un" firstAttribute="centerX" secondItem="mGE-yh-rfM" secondAttribute="centerX" id="s32-Ty-hcv"/>
+                                    <constraint firstItem="mGE-yh-rfM" firstAttribute="centerX" secondItem="O8C-lw-9Gc" secondAttribute="centerX" id="uaL-4e-eh8"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="bkv-Wx-QP9" appends="YES" id="VWw-cU-LUA"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waste Classifier" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fG-UH-23b">
+                                <rect key="frame" x="0.0" y="84" width="414" height="30"/>
+                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="N98-1T-c1z">
+                                <rect key="frame" x="177" y="762" width="60" height="58.666666666666629"/>
+                                <color key="tintColor" systemColor="darkTextColor"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="4Dl-lR-9uQ"/>
+                                    <constraint firstAttribute="width" constant="60" id="D4Z-PC-Uiw"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="NBV-T0-HUm" appends="YES" id="48h-jI-a2Y"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="N98-1T-c1z" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2rN-rR-aWY"/>
+                            <constraint firstItem="6fG-UH-23b" firstAttribute="trailing" secondItem="O8C-lw-9Gc" secondAttribute="trailing" id="2tV-7b-cy7"/>
+                            <constraint firstItem="O8C-lw-9Gc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="E3K-zW-6jQ"/>
+                            <constraint firstItem="O8C-lw-9Gc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="aKJ-5U-6Uk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="N98-1T-c1z" secondAttribute="bottom" constant="21" id="fIT-a0-eVa"/>
+                            <constraint firstItem="6fG-UH-23b" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="kXO-By-npm"/>
+                            <constraint firstAttribute="bottom" secondItem="O8C-lw-9Gc" secondAttribute="bottom" id="t7Q-4f-URe"/>
+                            <constraint firstItem="O8C-lw-9Gc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vxj-97-esF"/>
+                            <constraint firstItem="6fG-UH-23b" firstAttribute="leading" secondItem="O8C-lw-9Gc" secondAttribute="leading" id="wYK-ll-i5X"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="erI-KV-bRr"/>
+                    <connections>
+                        <outlet property="directions" destination="kiE-sx-4un" id="s0i-s6-8gb"/>
+                        <outlet property="loadingView" destination="mGE-yh-rfM" id="QCf-b1-xnH"/>
+                        <outlet property="main" destination="O8C-lw-9Gc" id="GaE-D2-7Qe"/>
+                        <outlet property="shoot" destination="N98-1T-c1z" id="WAd-w0-bTd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="NBV-T0-HUm">
+                    <connections>
+                        <action selector="takePhoto:" destination="BYZ-38-t0r" id="xbe-Mz-R6w"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="bkv-Wx-QP9"/>
+            </objects>
+            <point key="canvasLocation" x="115.94202898550725" y="132.58928571428572"/>
+        </scene>
+        <!--Pop UpVC-->
+        <scene sceneID="Vok-ZT-GIc">
+            <objects>
+                <viewController storyboardIdentifier="popupController" id="dkC-U8-wbM" customClass="PopUpVC" customModule="WasteSorter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" alpha="0.5" contentMode="scaleToFill" restorationIdentifier="viewPopName" id="UpC-mZ-00Q" userLabel="viewPopName">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dhl-uL-ExH" userLabel="Message">
+                                <rect key="frame" x="16" y="32" width="318" height="136"/>
+                                <string key="text">Wow, your earth is doing great! Let's take a moment to breathe in the fresh air...mmmm...look at all this greenery! Make sure to maintain this clean environment by coming back often to use the Waste Classifier.</string>
+                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ckL-Gg-hYZ"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ckL-Gg-hYZ" firstAttribute="trailing" secondItem="Dhl-uL-ExH" secondAttribute="trailing" constant="16" id="Mio-PY-Rks"/>
+                            <constraint firstItem="Dhl-uL-ExH" firstAttribute="leading" secondItem="ckL-Gg-hYZ" secondAttribute="leading" constant="16" id="XwJ-Jn-D0a"/>
+                            <constraint firstItem="Dhl-uL-ExH" firstAttribute="centerY" secondItem="UpC-mZ-00Q" secondAttribute="centerY" id="p8P-DA-sB6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="NkL-MG-yFI"/>
+                    <size key="freeformSize" width="350" height="200"/>
+                    <connections>
+                        <outlet property="tip" destination="Dhl-uL-ExH" id="e8R-uG-1x6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FuY-yW-CmQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-271" y="658"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="EarthWhite.gif" width="1242" height="2688"/>
+        <image name="bar" width="1462" height="300"/>
+        <image name="camera.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="info" width="720" height="720"/>
+        <image name="score" width="198" height="141"/>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

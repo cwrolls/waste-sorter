@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-WasteSorter/Pods-WasteSorter-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Gifu/Gifu.framework
+${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework
+${BUILT_PRODUCTS_DIR}/SimpleAlert/SimpleAlert.framework

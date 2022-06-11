@@ -36,6 +36,7 @@ class ViewControllerMain: UIViewController, UIPopoverPresentationControllerDeleg
     var appLaunch: Date!
     let firstLaunchOccurred = UserDefaults.standard
     var usedCount: Int! = 0
+    var countForScore: Int! = 0
     var newLaunch: Bool! = true
     
     let messages = [
@@ -100,6 +101,7 @@ class ViewControllerMain: UIViewController, UIPopoverPresentationControllerDeleg
 
     @objc func passData(data: Int) {
         usedCount += data
+        countForScore += data
         print("Count was passed.")
     }
     
@@ -146,7 +148,7 @@ class ViewControllerMain: UIViewController, UIPopoverPresentationControllerDeleg
                 score = 1
                 usedCount = 0
             }
-            print(usedCount)
+            print("Used Count = " + String(usedCount))
             if currColor != 5 && score == 1 {
                 if currColor == 4 {
                     UserDefaults.standard.set(5, forKey: "Current Color")
@@ -169,12 +171,72 @@ class ViewControllerMain: UIViewController, UIPopoverPresentationControllerDeleg
             }
         }
     }
+    func getTrashScore() -> Int {
+        let numTrashScore = UserDefaults.standard.integer(forKey: "Current Trash Score")
+        var timeSpan: TimeInterval!
+        var hoursBetween: Int!
+        var canIncreaseScore: Int! = 0
+        let dateQuit = UserDefaults.standard.object(forKey: "Quit Date") as? Date ?? nil
+        if dateQuit != nil {
+            timeSpan = appLaunch.timeIntervalSince(dateQuit!)
+            hoursBetween = (Int(timeSpan! / 3600))
+        } else {
+            return 50
+        }
+        
+        if newLaunch {
+            var score = numTrashScore
+            if !firstLaunchOccurred.bool(forKey: "First Launch") {
+                return 50
+            } else if hoursBetween < 5 {
+                
+            } else if hoursBetween < 11 {
+                score -= Int.random(in: 7..<15)
+            } else if hoursBetween < 17 {
+                score -= Int.random(in: 13..<21)
+            } else if hoursBetween < 27 {
+                score -= Int.random(in: 19..<35)
+            } else if hoursBetween < 38 {
+                score -= Int.random(in: 31..<47)
+            } else {
+               score = 1
+            }
+            print("Score = 1" + String(score))
+//            if (score < 0) {
+//                score = 0
+//            }
+            UserDefaults.standard.set(score, forKey: "Current Trash Score")
+            return score
+        } else {
+            if countForScore == 3 {
+                canIncreaseScore = 1
+                countForScore = 0
+            }
+            print("Count For Score = " + String(countForScore))
+            if numTrashScore != 100 && canIncreaseScore == 1 {
+                var newScore: Int! = numTrashScore + Int.random(in: 9..<21)
+                if newScore > 100 {
+                    newScore = 100
+                }
+                UserDefaults.standard.set(newScore, forKey: "Current Trash Score")
+                print("Score 2 = " + String(newScore))
+                return newScore
+            } else {
+                print("Score 3 = " + String(numTrashScore))
+                return numTrashScore
+            }
+        }
+    }
+        
+        
     
     @objc func updateView() {
         let name = getGifName()
         // gifView.image = UIImage(named: "\(name).png")
         // gifView.loadGif(name: name)
         gifView.animate(withGIFNamed: name)
+        let score = getTrashScore()
+        trashScore.text = "\(score)%"
     }
     
     deinit {

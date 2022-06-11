@@ -201,7 +201,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 1130;
-				ORGANIZATIONNAME = "Claire WU";
+				ORGANIZATIONNAME = "Claire Wu";
 				TargetAttributes = {
 					AEED0FCE2022857E00A86A33 = {
 						CreatedOnToolsVersion = 9.2;
@@ -454,14 +454,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9XXBJ2G8M7;
+				DEVELOPMENT_TEAM = 6ZZV47L2FA;
 				INFOPLIST_FILE = WasteSorter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ClaireWu.EarthWasteClassifier;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ClaireWu.WasteSorter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -474,14 +474,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9XXBJ2G8M7;
+				DEVELOPMENT_TEAM = 6ZZV47L2FA;
 				INFOPLIST_FILE = WasteSorter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ClaireWu.EarthWasteClassifier;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ClaireWu.WasteSorter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -23,7 +23,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Take pictures of waste</string>
+	<string>to take pictures of trash</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>View waste</string>
 	<key>UILaunchStoryboardName</key>

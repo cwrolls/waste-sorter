@@ -42,6 +42,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // Dismiss the picker if the user canceled.
+        classifierUsed  -= 1
+        if classifierUsed < 0 {
+            classifierUsed = 0
+        }
         dismiss(animated: true, completion: nil)
     }
 
@@ -74,7 +78,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func showAlert(text:String, conf:Float) {
          var res = text
-         if res == "Image is either not a waste or it's too blurry, please try it again."{
+         if res == "Image is either not waste or it's too blurry, please try it again."{
              res = "Unclassified"
          }
          let alert = AlertController(view: UIView(), style: .alert)
@@ -88,21 +92,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
          }
          let action = AlertAction(title: "\(res)", style: .cancel) { action in
          }
-         let confView = UILabel(frame:CGRect(x: 0, y: 150, width: 200, height: 35))
+         let confView = UILabel(frame:CGRect(x: 0, y: 138, width: 200, height: 35))
          confView.numberOfLines = 2
-         confView.text = "Confident Score: \n\(conf)%"
+         confView.text = "Confidence Score: \n\(conf)%"
          confView.font = UIFont(name: "Courier", size: 16)
          confView.textAlignment = .center
          action.button.addSubview(confView)
          action.button.bringSubviewToFront(_: confView)
-         let classif = UILabel(frame:CGRect(x: 0, y: 120, width: 200, height: 25))
-         classif.text = "[ \(res) ]"
-         classif.font = UIFont(name: "Courier", size: 20)
-         classif.textAlignment = .center
-         action.button.addSubview(classif)
+//         let classif = UILabel(frame:CGRect(x: 0, y: 120, width: 200, height: 25))
+//         classif.text = "[ \(res) ]"
+//         classif.font = UIFont(name: "Arial", size: 20)
+//         classif.textAlignment = .center
+//         action.button.addSubview(classif)
          alert.addAction(action)
          action.button.frame.size.height = 200
          action.button.titleLabel?.font = UIFont(name: "Courier-Bold", size: 35)
+         action.button.titleEdgeInsets = UIEdgeInsets(top: 30.0, left: 0.0, bottom: 0.0, right: 0.0)
          var imageName = ""
          if res == "Negative" {
              action.button.setTitleColor(UIColor(red: 135/256, green: 61/256, blue: 61/256, alpha: 1.0), for: .normal)
@@ -123,11 +128,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
              action.button.titleLabel?.font = UIFont(name: "Courier-Bold", size: 32)
              imageName = "recycling.png"
          }
-         classif.textColor = action.button.titleColor(for: .normal)
+         // classif.textColor = action.button.titleColor(for: .normal)
          
          let image = UIImage(named: imageName)
          let imageView = UIImageView(image: image!)
-         imageView.frame = CGRect(x: 70, y: 10, width: 60, height: 60)
+         imageView.frame = CGRect(x: 70, y: 30, width: 60, height: 60)
          action.button.addSubview(imageView)
          imageView.contentMode = .scaleAspectFit
 

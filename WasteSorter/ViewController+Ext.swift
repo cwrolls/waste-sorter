@@ -12,7 +12,7 @@ extension ViewController {
     /// - Parameter image: An image.
     func updateImage(_ image: UIImage) {
         DispatchQueue.main.async {
-            self.directions.alpha = 0
+            self.directions.alpha = 1
             self.main.image = image
             self.loadingView.stopAnimating()
         }

@@ -73,7 +73,7 @@ class ImagePredictor {
         let imageClassificationRequest = VNCoreMLRequest(model: ImagePredictor.imageClassifier,
                                                          completionHandler: visionRequestHandler)
 
-        imageClassificationRequest.imageCropAndScaleOption = .centerCrop
+        imageClassificationRequest.imageCropAndScaleOption = .scaleFill
         return imageClassificationRequest
     }
 

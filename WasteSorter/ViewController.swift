@@ -12,7 +12,7 @@ protocol GetTimesUsed {
   func passData(data: Int)
 }
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController {
 
     /// A predictor instance that uses Vision and Core ML to generate prediction strings from a photo.
     let imagePredictor = ImagePredictor()
@@ -21,7 +21,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var main: UIImageView!
     @IBOutlet weak var shoot: UIImageView!
     @IBOutlet weak var directions: UILabel!
-    
     
     var delegate: GetTimesUsed?
     var classifierUsed: Int! = 0
@@ -47,6 +46,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             classifierUsed = 0
         }
         dismiss(animated: true, completion: nil)
+        self.loadingView.stopAnimating()
     }
 
     @IBAction func takePhoto(_ sender: Any) {

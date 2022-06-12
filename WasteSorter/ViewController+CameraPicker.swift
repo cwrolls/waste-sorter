@@ -6,7 +6,7 @@
 
 import UIKit
 
-extension ViewController {
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     /// Creates a controller that gives the user a view they can use to take a photo with the device's camera.
     var cameraPicker: UIImagePickerController {
         let cameraPicker = UIImagePickerController()

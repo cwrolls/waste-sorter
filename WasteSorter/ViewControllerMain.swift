@@ -52,6 +52,15 @@ class ViewControllerMain: UIViewController, UIPopoverPresentationControllerDeleg
         
         "Wow, your earth is doing great! Let's take a moment to breathe in the fresh air...mmmm...look at all this greenery! Make sure to maintain this clean environment by coming back often to use the Waste Classifier."]
     
+    @IBAction func tapScorebox(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "introTwoVC")
+        vc.modalPresentationStyle = .popover
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     @IBAction func swipeLeft(_ sender: Any) {
         performSegue(withIdentifier: "toSecond", sender: self)
     }

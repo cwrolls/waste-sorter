@@ -25,7 +25,7 @@ class ImagePredictor {
 
         // Create an instance of the image classifier's wrapper class.
         //let imageClassifierWrapper = try? MobileNet(configuration: defaultConfig)
-        let imageClassifierWrapper = try? WasteClassifier_copy(configuration: defaultConfig)
+        let imageClassifierWrapper = try? WasteClassifier(configuration: defaultConfig)
 
         guard let imageClassifier = imageClassifierWrapper else {
             fatalError("App failed to create an image classifier model instance.")

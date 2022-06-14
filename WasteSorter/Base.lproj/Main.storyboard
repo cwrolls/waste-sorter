@@ -44,17 +44,23 @@
                                     <constraint firstAttribute="height" constant="51" id="iYW-cR-8De"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="scoreBox" image="score" translatesAutoresizingMaskIntoConstraints="NO" id="SP1-dh-kb5" userLabel="scoreBox">
+                            <imageView clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="scoreBox" image="score" translatesAutoresizingMaskIntoConstraints="NO" id="SP1-dh-kb5" userLabel="scoreBox">
                                 <rect key="frame" x="116" y="91" width="182" height="98"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="98" id="kRz-Ja-Xys"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="IVH-yM-iPZ" appends="YES" id="iSb-5e-OKY"/>
+                                </connections>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="score" text="67%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etk-4g-aGx" userLabel="score">
+                            <label opaque="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="score" text="67%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etk-4g-aGx" userLabel="score">
                                 <rect key="frame" x="175" y="135" width="64" height="35"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="IVH-yM-iPZ" appends="YES" id="4Kr-VI-Odg"/>
+                                </connections>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Ki-Of-trO"/>
@@ -99,13 +105,18 @@
                         <action selector="swipeLeft:" destination="tOq-kl-ZLC" id="8NT-Ez-IEL"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <tapGestureRecognizer id="IVH-yM-iPZ">
+                    <connections>
+                        <action selector="tapScorebox:" destination="tOq-kl-ZLC" id="LAb-Lb-yiP"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-646.37681159420299" y="132.58928571428572"/>
         </scene>
         <!--WasteClassifier-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="WasteClassifier" id="BYZ-38-t0r" customClass="ViewController" customModule="WasteSorter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="wasteClassifier" title="WasteClassifier" id="BYZ-38-t0r" customClass="ViewController" customModule="WasteSorter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -124,7 +135,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use the camera button below to take a picture of your trash, and I will tell you how to sort it." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiE-sx-4un" userLabel="Directions">
                                         <rect key="frame" x="44" y="397" width="326" height="136"/>
                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="24"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -146,7 +157,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waste Classifier" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fG-UH-23b">
                                 <rect key="frame" x="0.0" y="84" width="414" height="30"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="30"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="N98-1T-c1z">
@@ -163,7 +174,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="N98-1T-c1z" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2rN-rR-aWY"/>
@@ -211,7 +222,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ckL-Gg-hYZ"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                         <constraints>
                             <constraint firstItem="ckL-Gg-hYZ" firstAttribute="trailing" secondItem="Dhl-uL-ExH" secondAttribute="trailing" constant="16" id="Mio-PY-Rks"/>
                             <constraint firstItem="Dhl-uL-ExH" firstAttribute="leading" secondItem="ckL-Gg-hYZ" secondAttribute="leading" constant="16" id="XwJ-Jn-D0a"/>
@@ -226,7 +237,95 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FuY-yW-CmQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-271" y="658"/>
+            <point key="canvasLocation" x="-1530.4347826086957" y="155.35714285714286"/>
+        </scene>
+        <!--Intro OneVC-->
+        <scene sceneID="1Ve-KB-aOe">
+            <objects>
+                <viewController storyboardIdentifier="introOneVC" id="2Ti-fv-9fV" customClass="IntroOneVC" customModule="WasteSorter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" alpha="0.5" contentMode="scaleToFill" id="hAR-G4-gPH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yg4-yQ-CS3" userLabel="backgroundView">
+                                <rect key="frame" x="0.0" y="0.0" width="531" height="913"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="tintColor"/>
+                            </view>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBb-Lk-C3d" userLabel="tutorialView">
+                                <rect key="frame" x="42" y="339" width="330" height="218"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkR-Cl-svX">
+                                        <rect key="frame" x="5" y="3" width="321" height="233"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="233" id="lDd-wb-vSj"/>
+                                        </constraints>
+                                        <string key="text">Welcome! Congratulations for taking a step towards saving the planet. This app helps you sort your trash with image recognition. By using the app more, you'll help create a healthier world!
+</string>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="20"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <string key="userLabel">Welcome! Congratulations for taking a step towards saving the planet. This app helps you sort your trash with image recognition. By using the app more, you'll help create a healthier world!</string>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="qkR-Cl-svX" firstAttribute="leading" secondItem="cBb-Lk-C3d" secondAttribute="leading" constant="5" id="TfX-54-wGU"/>
+                                    <constraint firstItem="qkR-Cl-svX" firstAttribute="centerX" secondItem="cBb-Lk-C3d" secondAttribute="centerX" id="VHy-ss-Prh"/>
+                                    <constraint firstAttribute="bottom" secondItem="qkR-Cl-svX" secondAttribute="bottom" constant="-23" id="c8L-KU-32o"/>
+                                    <constraint firstItem="qkR-Cl-svX" firstAttribute="top" secondItem="cBb-Lk-C3d" secondAttribute="topMargin" id="n8F-fF-Q40"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mHY-ie-4hY"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cBb-Lk-C3d" firstAttribute="leading" secondItem="mHY-ie-4hY" secondAttribute="leading" constant="42" id="1S0-UE-Nsu"/>
+                            <constraint firstItem="cBb-Lk-C3d" firstAttribute="centerY" secondItem="hAR-G4-gPH" secondAttribute="centerY" id="bpj-Hk-wzJ"/>
+                            <constraint firstItem="cBb-Lk-C3d" firstAttribute="centerX" secondItem="hAR-G4-gPH" secondAttribute="centerX" id="rvp-38-E7K"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tutorialView" destination="cBb-Lk-C3d" id="9TR-HJ-i6f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aev-II-TN8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-646.37681159420299" y="780.80357142857144"/>
+        </scene>
+        <!--Intro TwoVC-->
+        <scene sceneID="jig-Zy-VK9">
+            <objects>
+                <viewController storyboardIdentifier="introTwoVC" id="0Go-f1-TuU" customClass="IntroTwoVC" customModule="WasteSorter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HIZ-dc-ZJK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.80000001192092896" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sxg-lb-HNg" userLabel="tutorialTwoView">
+                                <rect key="frame" x="49" y="219" width="316" height="134"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This score indicates how healthy your virtual planet is. Keep using the waste classifier to increase your score!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUP-2c-vCO">
+                                <rect key="frame" x="60" y="211" width="294" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <string key="userLabel">Welcome! Congratulations for taking a step towards saving the planet. This app helps you sort your trash with image recognition. By using the app more, you'll help create a healthier world!</string>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YTv-NQ-vGq"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="tutorialTwoView" destination="Sxg-lb-HNg" id="3I7-Q7-5RB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F1e-bM-8c8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="115.94202898550725" y="780.80357142857144"/>
         </scene>
     </scenes>
     <resources>
@@ -238,8 +337,14 @@
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

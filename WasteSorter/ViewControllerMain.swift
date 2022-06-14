@@ -52,6 +52,15 @@ class ViewControllerMain: UIViewController, UIPopoverPresentationControllerDeleg
         
         "Wow, your earth is doing great! Let's take a moment to breathe in the fresh air...mmmm...look at all this greenery! Make sure to maintain this clean environment by coming back often to use the Waste Classifier."]
     
+    @IBAction func tapScorebox(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "introTwoVC")
+        vc.modalPresentationStyle = .popover
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     @IBAction func swipeLeft(_ sender: Any) {
         performSegue(withIdentifier: "toSecond", sender: self)
     }
@@ -70,14 +79,6 @@ class ViewControllerMain: UIViewController, UIPopoverPresentationControllerDeleg
         // bugbug
         // NotificationCenter.default.addObserver(self, selector:#selector(updateView), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateView), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
-        
-        if firstLaunchOccurred.bool(forKey: "First Launch") == true {
-            print("Not first launch.")
-        } else {
-            print("First launch.")
-            UserDefaults.standard.set(3, forKey: "Current Color")
-            firstLaunchOccurred.set(true, forKey: "First Launch")
-        }
     
         // Arrange layer order
         view.addSubview(gifView)
@@ -103,6 +104,26 @@ class ViewControllerMain: UIViewController, UIPopoverPresentationControllerDeleg
         usedCount += data
         countForScore += data
         print("Count was passed.")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        if firstLaunchOccurred.bool(forKey: "First Launch") == true {
+            print("Not first launch.")
+        } else {
+            print("First launch.")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "introOneVC")
+            vc.modalPresentationStyle = .popover
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.modalTransitionStyle = .crossDissolve
+            present(vc, animated: true, completion: nil)
+            self.view.mask = UIView(frame: self.frame)
+            self.view.mask?.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+            UserDefaults.standard.set(3, forKey: "Current Color")
+            UserDefaults.standard.set(50, forKey: "Current Trash Score")
+            firstLaunchOccurred.set(true, forKey: "First Launch")
+        }
     }
     
     // MARK: Update Gif
@@ -212,7 +233,6 @@ class ViewControllerMain: UIViewController, UIPopoverPresentationControllerDeleg
                 canIncreaseScore = 1
                 countForScore = 0
             }
-            print("Count For Score = " + String(countForScore))
             if numTrashScore != 100 && canIncreaseScore == 1 {
                 var newScore: Int! = numTrashScore + Int.random(in: 9..<21)
                 if newScore > 100 {
@@ -305,7 +325,7 @@ class ViewControllerMain: UIViewController, UIPopoverPresentationControllerDeleg
         
         var passthroughViews: [AnyObject]?
         passthroughViews = [infoButton]
-    myViewController.popoverPresentationController?.passthroughViews = (NSMutableArray(array: passthroughViews!) as! [UIView])
+        myViewController.popoverPresentationController?.passthroughViews = (NSMutableArray(array: passthroughViews!) as! [UIView])
     
         popOver?.sourceRect = infoButton.frame
     }

@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         directions.alpha = 1
+        self.view.bringSubviewToFront(directions)
     }
     
     override func viewDidDisappear(_ animated: Bool) {

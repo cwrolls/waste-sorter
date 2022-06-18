@@ -3,37 +3,38 @@
 //  Copyright © 2022 Claire Wu. All rights reserved.
 //
 
-
 import UIKit
+import AVFoundation
+import Vision
 
-extension ViewController {
-    // MARK: Main storyboard updates
-    /// Updates the storyboard's image view.
-    /// - Parameter image: An image.
-    func updateImage(_ image: UIImage) {
-        DispatchQueue.main.async {
-            self.directions.alpha = 1
-            self.main.image = image
-            self.loadingView.stopAnimating()
+class LivePreviewClassiferViewController: LivePreviewViewController {
+    
+    let imagePredictor = ImagePredictor()
+    
+    
+    override func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
+            return
         }
-    }
-
-    /// Notifies the view controller when a user selects a photo in the camera picker or photo library picker.
-    /// - Parameter photo: A photo from the camera or photo library.
-    func userSelectedPhoto(_ photo: UIImage) {
-        updateImage(photo)
-
+        let exifOrientation = exifOrientationFromDeviceOrientation()
+        
+        let ciimage = CIImage(cvPixelBuffer: pixelBuffer).oriented(_: exifOrientation)
+        let context = CIContext(options: nil)
+        let cgImage = context.createCGImage(ciimage, from: ciimage.extent)!
+        let uiImage = UIImage(cgImage: cgImage)
+        
         DispatchQueue.global(qos: .userInitiated).async {
-            self.classifyImage(photo)
+            self.classifyImage(uiImage)
         }
     }
-
-}
-
-extension ViewController {
-    // MARK: Image prediction methods
-    /// Sends a photo to the Image Predictor to get a prediction of its content.
-    /// - Parameter image: A photo.
+    
+    override func setupAVCapture() {
+        super.setupAVCapture()
+        
+        // start the capture
+        startCaptureSession()
+    }
+    
     private func classifyImage(_ image: UIImage) {
         do {
             try self.imagePredictor.makePredictions(for: image,
@@ -59,8 +60,9 @@ extension ViewController {
         
         if let conf = Float(predictions[0].confidencePercentage) {
             DispatchQueue.main.async {
-                self.showAlert(text: predictions[0].classification, conf: conf)
+                //self.showAlert(text: predictions[0].classification, conf: conf)
             }
         }
     }
+    
 }

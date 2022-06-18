@@ -62,14 +62,18 @@ class ViewControllerMain: UIViewController, UIPopoverPresentationControllerDeleg
     }
     
     @IBAction func swipeLeft(_ sender: Any) {
-        performSegue(withIdentifier: "toSecond", sender: self)
+        performSegue(withIdentifier: "toPic", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toSecond" {
+        if segue.identifier == "toPic" {
             let vc2 : ViewController = segue.destination as! ViewController
             vc2.delegate = self
         }
+    }
+    
+    @IBAction func swipeRight(_ sender: Any) {
+        performSegue(withIdentifier: "toLive", sender: self)
     }
     
     override func viewDidLoad() {

@@ -97,6 +97,29 @@ class ImagePredictor {
         try handler.perform(requests)
     }
 
+    /// Converts a prediction's observations into human-readable strings.
+    /// - Parameter observations: The classification observations from a Vision request.
+    /// - Tag: formatPredictions
+    func formatPredictions(_ predictions: [ImagePredictor.Prediction]) -> [String] {
+        /// The largest number of predictions the main view controller displays the user.
+        let predictionsToShow = 3
+       
+        // Vision sorts the classifications in descending confidence order.
+        let topPredictions: [String] = predictions.prefix(predictionsToShow).map { prediction in
+            var name = prediction.classification
+
+            // For classifications with more than one name, keep the one before the first comma.
+            if let firstComma = name.firstIndex(of: ",") {
+                name = String(name.prefix(upTo: firstComma))
+            }
+
+            return "\(name) - \(prediction.confidencePercentage)%"
+
+        }
+
+        return topPredictions
+    }
+    
     /// The completion handler method that Vision calls when it completes a request.
     /// - Parameters:
     ///   - request: A Vision request.
@@ -129,8 +152,6 @@ class ImagePredictor {
         if request.results == nil {
             print("Vision request had no results.")
             return
-        } else {
-            print("request.results: ", request.results)
         }
 
         // Cast the request's results as an `VNClassificationObservation` array.

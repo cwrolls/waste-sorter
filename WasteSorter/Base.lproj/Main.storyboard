@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tOq-kl-ZLC">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -20,6 +19,7 @@
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="gifView" image="EarthWhite.gif" translatesAutoresizingMaskIntoConstraints="NO" id="SIx-fQ-uzi" customClass="GIFImageView" customModule="Gifu">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                             </imageView>
                             <button opaque="NO" alpha="0.46999999999999997" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4IO-zC-mA4">
                                 <rect key="frame" x="177" y="697" width="60" height="60"/>
@@ -32,8 +32,8 @@
                                     <action selector="infoClicked:" destination="tOq-kl-ZLC" eventType="touchUpInside" id="IPa-mn-9LV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe Left to Access Waste Classifier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNW-bg-n3a" userLabel="Directions">
-                                <rect key="frame" x="40" y="847" width="334" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe Left to snapshot, right to live preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNW-bg-n3a" userLabel="Directions">
+                                <rect key="frame" x="4.3333333333333428" y="847" width="405.33333333333326" height="15"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -46,6 +46,7 @@
                             </imageView>
                             <imageView clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="scoreBox" image="score" translatesAutoresizingMaskIntoConstraints="NO" id="SP1-dh-kb5" userLabel="scoreBox">
                                 <rect key="frame" x="116" y="91" width="182" height="98"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="98" id="kRz-Ja-Xys"/>
                                 </constraints>
@@ -86,6 +87,7 @@
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Fn7-XZ-SLb" appends="YES" id="ygI-0l-Zw9"/>
+                            <outletCollection property="gestureRecognizers" destination="3mu-BS-4bh" appends="YES" id="95F-YD-pdi"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="TUN-UV-2De"/>
@@ -96,7 +98,8 @@
                         <outlet property="infoButton" destination="4IO-zC-mA4" id="1bw-hM-V2i"/>
                         <outlet property="scoreBox" destination="SP1-dh-kb5" id="3Z9-RH-NJ5"/>
                         <outlet property="trashScore" destination="etk-4g-aGx" id="XPi-cD-ahO"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toSecond" id="2iK-fm-n3D"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toPic" id="2iK-fm-n3D"/>
+                        <segue destination="NfA-c2-gTT" kind="presentation" identifier="toLive" id="Qj4-DZ-8aM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cqr-SD-JRI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -110,6 +113,11 @@
                         <action selector="tapScorebox:" destination="tOq-kl-ZLC" id="LAb-Lb-yiP"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="3mu-BS-4bh">
+                    <connections>
+                        <action selector="swipeRight:" destination="tOq-kl-ZLC" id="Mue-Ah-uaY"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-646.37681159420299" y="132.58928571428572"/>
         </scene>
@@ -203,7 +211,25 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="115.94202898550725" y="132.58928571428572"/>
+            <point key="canvasLocation" x="538" y="-177"/>
+        </scene>
+        <!--LiveWasteClassifier-->
+        <scene sceneID="B6Z-8c-mf6">
+            <objects>
+                <viewController title="LiveWasteClassifier" id="NfA-c2-gTT" customClass="LivePreviewClassiferViewController" customModule="WasteSorter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VuK-Va-GlQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <viewLayoutGuide key="safeArea" id="U3b-Om-BPv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="previewView" destination="VuK-Va-GlQ" id="KZz-bm-MyH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f2e-s4-Wd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="541" y="516"/>
         </scene>
         <!--Pop UpVC-->
         <scene sceneID="Vok-ZT-GIc">
@@ -237,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FuY-yW-CmQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1530.4347826086957" y="155.35714285714286"/>
+            <point key="canvasLocation" x="-2201" y="147"/>
         </scene>
         <!--Intro OneVC-->
         <scene sceneID="1Ve-KB-aOe">
@@ -292,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aev-II-TN8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-646.37681159420299" y="780.80357142857144"/>
+            <point key="canvasLocation" x="-1097" y="790"/>
         </scene>
         <!--Intro TwoVC-->
         <scene sceneID="jig-Zy-VK9">
@@ -325,7 +351,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F1e-bM-8c8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="115.94202898550725" y="780.80357142857144"/>
+            <point key="canvasLocation" x="-316" y="790"/>
         </scene>
     </scenes>
     <resources>

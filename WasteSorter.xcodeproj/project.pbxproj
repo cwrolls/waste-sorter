@@ -14,6 +14,8 @@
 		5C1E345B284D3C760082B410 /* ViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1E3458284D3C760082B410 /* ViewController+Ext.swift */; };
 		5C1E345C284D3C760082B410 /* ViewController+CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1E3459284D3C760082B410 /* ViewController+CameraPicker.swift */; };
 		5C1E345D284D3C760082B410 /* ViewController+PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1E345A284D3C760082B410 /* ViewController+PhotoPicker.swift */; };
+		5CA36532285E269D0068EFE4 /* LivePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA36531285E269D0068EFE4 /* LivePreviewViewController.swift */; };
+		5CA36534285E37540068EFE4 /* LivePreviewClassifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA36533285E37540068EFE4 /* LivePreviewClassifierViewController.swift */; };
 		5CFCDD4628584ACE00078294 /* WasteClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5CFCDD4528584ACE00078294 /* WasteClassifier.mlmodel */; };
 		7E1058B72856E64500667188 /* IntroOneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1058B62856E64500667188 /* IntroOneVC.swift */; };
 		7E1058B92856FDB500667188 /* IntroTwoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1058B82856FDB500667188 /* IntroTwoVC.swift */; };
@@ -42,6 +44,8 @@
 		5C1E3458284D3C760082B410 /* ViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Ext.swift"; sourceTree = "<group>"; };
 		5C1E3459284D3C760082B410 /* ViewController+CameraPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+CameraPicker.swift"; sourceTree = "<group>"; };
 		5C1E345A284D3C760082B410 /* ViewController+PhotoPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+PhotoPicker.swift"; sourceTree = "<group>"; };
+		5CA36531285E269D0068EFE4 /* LivePreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LivePreviewViewController.swift; sourceTree = "<group>"; };
+		5CA36533285E37540068EFE4 /* LivePreviewClassifierViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LivePreviewClassifierViewController.swift; sourceTree = "<group>"; };
 		5CFCDD4528584ACE00078294 /* WasteClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = WasteClassifier.mlmodel; sourceTree = "<group>"; };
 		7E1058B62856E64500667188 /* IntroOneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroOneVC.swift; sourceTree = "<group>"; };
 		7E1058B82856FDB500667188 /* IntroTwoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroTwoVC.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 				5C1E3459284D3C760082B410 /* ViewController+CameraPicker.swift */,
 				5C1E345A284D3C760082B410 /* ViewController+PhotoPicker.swift */,
 				7E3D1437248F430E0039C655 /* GifImageView.swift */,
+				5CA36531285E269D0068EFE4 /* LivePreviewViewController.swift */,
+				5CA36533285E37540068EFE4 /* LivePreviewClassifierViewController.swift */,
 				7E4E73EE241B4ADD00C78CBE /* LaunchScreen.png */,
 				AEED0FDC2022857F00A86A33 /* Assets.xcassets */,
 				AEED0FDE2022857F00A86A33 /* LaunchScreen.storyboard */,
@@ -303,12 +309,14 @@
 				AEED0FD52022857F00A86A33 /* ViewController.swift in Sources */,
 				5C1E345D284D3C760082B410 /* ViewController+PhotoPicker.swift in Sources */,
 				5CFCDD4628584ACE00078294 /* WasteClassifier.mlmodel in Sources */,
+				5CA36534285E37540068EFE4 /* LivePreviewClassifierViewController.swift in Sources */,
 				5C1E345C284D3C760082B410 /* ViewController+CameraPicker.swift in Sources */,
 				5C1E345B284D3C760082B410 /* ViewController+Ext.swift in Sources */,
 				AEED0FD32022857F00A86A33 /* AppDelegate.swift in Sources */,
 				7E1058B72856E64500667188 /* IntroOneVC.swift in Sources */,
 				7E1058B92856FDB500667188 /* IntroTwoVC.swift in Sources */,
 				5C1E3450284D34290082B410 /* VNClassificationObservation+confidenceString.swift in Sources */,
+				5CA36532285E269D0068EFE4 /* LivePreviewViewController.swift in Sources */,
 				5C1E3457284D34BF0082B410 /* ImagePredictor.swift in Sources */,
 				5C1E3451284D34290082B410 /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */,
 				7E4E73E924186A3900C78CBE /* PopUpVC.swift in Sources */,
@@ -456,6 +464,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C550128DB6A3201AE3D3FA7D /* Pods-WasteSorter.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6ZZV47L2FA;
@@ -468,7 +477,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ClaireWu.WasteSorter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -476,6 +485,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8B08EB944B9C080BF56C195C /* Pods-WasteSorter.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6ZZV47L2FA;

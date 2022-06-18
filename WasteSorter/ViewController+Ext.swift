@@ -13,7 +13,15 @@ extension ViewController {
     func updateImage(_ image: UIImage) {
         DispatchQueue.main.async {
             self.directions.alpha = 1
-            self.main.image = image
+//            self.main.image = image
+            let imageView = UIImageView(frame: self.view.bounds)
+            imageView.image = image
+            self.view.addSubview(imageView)
+            imageView.alpha = 0.7
+            self.view.bringSubviewToFront(self.directions)
+            self.view.bringSubviewToFront(self.main)
+            self.view.bringSubviewToFront(self.shoot)
+            self.view.bringSubviewToFront(self.classifierTitle)
             self.loadingView.stopAnimating()
         }
     }
@@ -27,7 +35,7 @@ extension ViewController {
             self.classifyImage(photo)
         }
     }
-
+    
 }
 
 extension ViewController {
@@ -59,6 +67,7 @@ extension ViewController {
         
         if let conf = Float(predictions[0].confidencePercentage) {
             DispatchQueue.main.async {
+                print(predictions[0])
                 self.showAlert(text: predictions[0].classification, conf: conf)
             }
         }
@@ -83,7 +92,6 @@ extension ViewController {
             return "\(name) - \(prediction.confidencePercentage)%"
 
         }
-
         return topPredictions
     }
 }

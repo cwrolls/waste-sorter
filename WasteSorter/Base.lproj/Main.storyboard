@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tOq-kl-ZLC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tOq-kl-ZLC">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <button opaque="NO" alpha="0.46999999999999997" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4IO-zC-mA4">
+                            <button opaque="NO" alpha="0.10000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4IO-zC-mA4">
                                 <rect key="frame" x="177" y="697" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="gib-W1-F8W"/>
@@ -62,18 +61,24 @@
                                     <outletCollection property="gestureRecognizers" destination="IVH-yM-iPZ" appends="YES" id="4Kr-VI-Odg"/>
                                 </connections>
                             </label>
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info" highlightedImage="info2" translatesAutoresizingMaskIntoConstraints="NO" id="73V-Uj-p7k">
+                                <rect key="frame" x="180" y="697" width="54" height="60"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Ki-Of-trO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="NG6-Yf-1hm" firstAttribute="centerX" secondItem="4IO-zC-mA4" secondAttribute="centerX" id="1EY-z1-MZt"/>
+                            <constraint firstItem="73V-Uj-p7k" firstAttribute="leading" secondItem="7Ki-Of-trO" secondAttribute="leading" constant="180" id="4xZ-Zf-GjQ"/>
                             <constraint firstItem="DNW-bg-n3a" firstAttribute="centerX" secondItem="4IO-zC-mA4" secondAttribute="centerX" id="4yX-Ls-owN"/>
+                            <constraint firstItem="73V-Uj-p7k" firstAttribute="bottom" secondItem="4IO-zC-mA4" secondAttribute="bottom" id="Dx4-J5-Oms"/>
                             <constraint firstItem="DNW-bg-n3a" firstAttribute="bottom" secondItem="7Ki-Of-trO" secondAttribute="bottom" id="HpZ-TX-Mzf"/>
                             <constraint firstItem="NG6-Yf-1hm" firstAttribute="top" secondItem="7Ki-Of-trO" secondAttribute="top" id="IdP-Oi-A3g"/>
                             <constraint firstItem="NG6-Yf-1hm" firstAttribute="centerX" secondItem="SP1-dh-kb5" secondAttribute="centerX" id="NZu-8R-PHN"/>
+                            <constraint firstItem="73V-Uj-p7k" firstAttribute="top" secondItem="4IO-zC-mA4" secondAttribute="top" id="ON3-X6-tw7"/>
                             <constraint firstItem="etk-4g-aGx" firstAttribute="top" secondItem="NG6-Yf-1hm" secondAttribute="bottom" constant="40" id="OTL-6j-rPH"/>
-                            <constraint firstItem="4IO-zC-mA4" firstAttribute="bottom" secondItem="7Ki-Of-trO" secondAttribute="bottom" constant="-105" id="XTc-RR-2XV"/>
+                            <constraint firstItem="73V-Uj-p7k" firstAttribute="bottom" secondItem="7Ki-Of-trO" secondAttribute="bottom" constant="-105" id="XTc-RR-2XV"/>
                             <constraint firstItem="SP1-dh-kb5" firstAttribute="leading" secondItem="7Ki-Of-trO" secondAttribute="leading" constant="116" id="Zcy-BM-QAU"/>
                             <constraint firstItem="etk-4g-aGx" firstAttribute="centerX" secondItem="SP1-dh-kb5" secondAttribute="centerX" id="ewO-3i-xyW"/>
                             <constraint firstItem="SIx-fQ-uzi" firstAttribute="top" secondItem="oNR-s4-VNF" secondAttribute="topMargin" constant="-44" id="hmI-7A-cF1"/>
@@ -81,6 +86,7 @@
                             <constraint firstItem="SIx-fQ-uzi" firstAttribute="leading" secondItem="7Ki-Of-trO" secondAttribute="leading" id="pEv-Pq-a9A"/>
                             <constraint firstItem="SIx-fQ-uzi" firstAttribute="centerY" secondItem="oNR-s4-VNF" secondAttribute="centerY" id="t0C-Ip-l4p"/>
                             <constraint firstItem="SP1-dh-kb5" firstAttribute="top" secondItem="7Ki-Of-trO" secondAttribute="top" constant="47" id="uia-xK-was"/>
+                            <constraint firstItem="73V-Uj-p7k" firstAttribute="centerX" secondItem="4IO-zC-mA4" secondAttribute="centerX" id="x3R-6p-miM"/>
                             <constraint firstItem="SIx-fQ-uzi" firstAttribute="centerX" secondItem="oNR-s4-VNF" secondAttribute="centerX" id="yZy-UB-zA5"/>
                             <constraint firstItem="4IO-zC-mA4" firstAttribute="centerX" secondItem="oNR-s4-VNF" secondAttribute="centerX" id="zOt-1O-Yvo"/>
                         </constraints>
@@ -94,6 +100,7 @@
                         <outlet property="gradientBar" destination="NG6-Yf-1hm" id="iqa-0J-O6G"/>
                         <outlet property="infoBottom" destination="XTc-RR-2XV" id="wqV-Kf-ba8"/>
                         <outlet property="infoButton" destination="4IO-zC-mA4" id="1bw-hM-V2i"/>
+                        <outlet property="infoImage" destination="73V-Uj-p7k" id="2e5-oF-Mrt"/>
                         <outlet property="scoreBox" destination="SP1-dh-kb5" id="3Z9-RH-NJ5"/>
                         <outlet property="trashScore" destination="etk-4g-aGx" id="XPi-cD-ahO"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="toSecond" id="2iK-fm-n3D"/>
@@ -133,7 +140,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use the camera button below to take a picture of your trash, and I will tell you how to sort it." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiE-sx-4un" userLabel="Directions">
-                                        <rect key="frame" x="44" y="397" width="326" height="136"/>
+                                        <rect key="frame" x="44" y="353" width="326" height="136"/>
                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="24"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -155,13 +162,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waste Classifier" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fG-UH-23b">
-                                <rect key="frame" x="0.0" y="84" width="414" height="30"/>
+                                <rect key="frame" x="0.0" y="40" width="414" height="30"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="30"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="N98-1T-c1z">
-                                <rect key="frame" x="177" y="762" width="60" height="58.666666666666629"/>
+                                <rect key="frame" x="177" y="728" width="60" height="58.666666666666629"/>
                                 <color key="tintColor" systemColor="darkTextColor"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -190,6 +197,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="erI-KV-bRr"/>
                     <connections>
+                        <outlet property="classifierTitle" destination="6fG-UH-23b" id="pKE-vG-h5w"/>
                         <outlet property="directions" destination="kiE-sx-4un" id="s0i-s6-8gb"/>
                         <outlet property="loadingView" destination="mGE-yh-rfM" id="QCf-b1-xnH"/>
                         <outlet property="main" destination="O8C-lw-9Gc" id="GaE-D2-7Qe"/>
@@ -333,6 +341,7 @@
         <image name="bar" width="1462" height="300"/>
         <image name="camera.circle.fill" catalog="system" width="128" height="121"/>
         <image name="info" width="720" height="720"/>
+        <image name="info2" width="64" height="64"/>
         <image name="score" width="198" height="141"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

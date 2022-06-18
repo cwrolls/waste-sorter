@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var main: UIImageView!
     @IBOutlet weak var shoot: UIImageView!
     @IBOutlet weak var directions: UILabel!
+    @IBOutlet weak var classifierTitle: UILabel!
     
     var delegate: GetTimesUsed?
     var classifierUsed: Int! = 0
@@ -49,7 +50,7 @@ class ViewController: UIViewController {
         dismiss(animated: true, completion: nil)
         self.loadingView.stopAnimating()
     }
-
+    
     @IBAction func takePhoto(_ sender: Any) {
         self.loadingView.startAnimating()
         self.view.bringSubviewToFront(_: loadingView)

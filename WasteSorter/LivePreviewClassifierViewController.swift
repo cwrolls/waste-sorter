@@ -61,6 +61,11 @@ class LivePreviewClassiferViewController: LivePreviewViewController {
         if let conf = Float(predictions[0].confidencePercentage) {
             DispatchQueue.main.async {
                 //self.showAlert(text: predictions[0].classification, conf: conf)
+                var confidence = conf
+                if confidence > 99.9 {
+                    confidence = 99.9
+                }
+                self.displayResults(result: predictions[0].classification, conf: confidence)
             }
         }
     }

@@ -33,6 +33,8 @@ class ViewControllerMain: UIViewController, UIPopoverPresentationControllerDeleg
     @IBOutlet weak var gradientBar: UIImageView!
     @IBOutlet weak var scoreBox: UIImageView!
     @IBOutlet weak var trashScore: UILabel!
+    @IBOutlet weak var infoImage: UIImageView!
+    
     var appLaunch: Date!
     let firstLaunchOccurred = UserDefaults.standard
     var usedCount: Int! = 0
@@ -91,6 +93,7 @@ class ViewControllerMain: UIViewController, UIPopoverPresentationControllerDeleg
         view.bringSubviewToFront(_: trashScore)
         view.bringSubviewToFront(_: gradientBar)
         view.bringSubviewToFront(_: infoButton)
+        view.bringSubviewToFront(_: infoImage)
         
         appLaunch = Date()
         updateView()
@@ -270,7 +273,7 @@ class ViewControllerMain: UIViewController, UIPopoverPresentationControllerDeleg
     // MARK: Info Button
     
     @IBAction func infoClicked(_ sender: UIButton) {
-        if infoButton.currentImage == UIImage(named: "info2") {
+        if infoImage.image == UIImage(named: "info2") {
             self.dismiss(animated: true, completion: nil)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
@@ -293,10 +296,10 @@ class ViewControllerMain: UIViewController, UIPopoverPresentationControllerDeleg
             showPopover()
         }
         
-        if sender.currentImage == UIImage(named: "info2") {
-            sender.setImage(UIImage(named: "info"), for: .normal)
+        if infoImage.image == UIImage(named: "info2") {
+            infoImage.image = UIImage(named: "info.png")
         } else {
-            sender.setImage(UIImage(named: "info2"), for: .normal)
+            infoImage.image = UIImage(named: "info2.png")
         }
     }
     
@@ -319,7 +322,7 @@ class ViewControllerMain: UIViewController, UIPopoverPresentationControllerDeleg
         })
 
     
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
             UIView.animate(withDuration: 0.5, animations: {
                 self.present(myViewController, animated: true, completion: nil)
             })

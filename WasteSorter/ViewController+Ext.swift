@@ -13,7 +13,15 @@ extension ViewController {
     func updateImage(_ image: UIImage) {
         DispatchQueue.main.async {
             self.directions.alpha = 1
-            self.main.image = image
+//            self.main.image = image
+            let imageView = UIImageView(frame: self.view.bounds)
+            imageView.image = image
+            self.view.addSubview(imageView)
+            imageView.alpha = 0.7
+            self.view.bringSubviewToFront(self.directions)
+            self.view.bringSubviewToFront(self.main)
+            self.view.bringSubviewToFront(self.shoot)
+            self.view.bringSubviewToFront(self.classifierTitle)
             self.loadingView.stopAnimating()
         }
     }
@@ -27,7 +35,7 @@ extension ViewController {
             self.classifyImage(photo)
         }
     }
-
+    
 }
 
 extension ViewController {
@@ -62,5 +70,27 @@ extension ViewController {
                 self.showAlert(text: predictions[0].classification, conf: conf)
             }
         }
+    }
+
+    /// Converts a prediction's observations into human-readable strings.
+    /// - Parameter observations: The classification observations from a Vision request.
+    /// - Tag: formatPredictions
+    private func formatPredictions(_ predictions: [ImagePredictor.Prediction]) -> [String] {
+        /// The largest number of predictions the main view controller displays the user.
+        let predictionsToShow = 3
+       
+        // Vision sorts the classifications in descending confidence order.
+        let topPredictions: [String] = predictions.prefix(predictionsToShow).map { prediction in
+            var name = prediction.classification
+
+            // For classifications with more than one name, keep the one before the first comma.
+            if let firstComma = name.firstIndex(of: ",") {
+                name = String(name.prefix(upTo: firstComma))
+            }
+
+            return "\(name) - \(prediction.confidencePercentage)%"
+
+        }
+        return topPredictions
     }
 }

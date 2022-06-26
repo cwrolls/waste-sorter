@@ -30,8 +30,6 @@
 		7E888F4124201D1D00CF6B5E /* EarthOrange.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7E888F3C24201D1C00CF6B5E /* EarthOrange.gif */; };
 		7E888F4224201D1D00CF6B5E /* EarthGreen.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7E888F3D24201D1D00CF6B5E /* EarthGreen.gif */; };
 		7E8CFFC62415DA8A00ED56EE /* ViewControllerMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8CFFC52415DA8A00ED56EE /* ViewControllerMain.swift */; };
-		7E8F036D285D1A3100CBBD8F /* info1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E8F036C285D1A3100CBBD8F /* info1.png */; };
-		7E8F036F285D1A3E00CBBD8F /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E8F036E285D1A3E00CBBD8F /* info.png */; };
 		AEED0FD32022857F00A86A33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEED0FD22022857F00A86A33 /* AppDelegate.swift */; };
 		AEED0FD52022857F00A86A33 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEED0FD42022857F00A86A33 /* ViewController.swift */; };
 		AEED0FD82022857F00A86A33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEED0FD62022857F00A86A33 /* Main.storyboard */; };
@@ -61,9 +59,6 @@
 		7E888F3C24201D1C00CF6B5E /* EarthOrange.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = EarthOrange.gif; sourceTree = "<group>"; };
 		7E888F3D24201D1D00CF6B5E /* EarthGreen.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = EarthGreen.gif; sourceTree = "<group>"; };
 		7E8CFFC52415DA8A00ED56EE /* ViewControllerMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMain.swift; sourceTree = "<group>"; };
-		7E8F036A285D1A1700CBBD8F /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info.png; path = WasteSorter/Assets.xcassets/info.imageset/info.png; sourceTree = "<group>"; };
-		7E8F036C285D1A3100CBBD8F /* info1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info1.png; path = WasteSorter/Assets.xcassets/info2.imageset/info1.png; sourceTree = "<group>"; };
-		7E8F036E285D1A3E00CBBD8F /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info.png; path = WasteSorter/Assets.xcassets/info.imageset/info.png; sourceTree = "<group>"; };
 		8B08EB944B9C080BF56C195C /* Pods-WasteSorter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WasteSorter.release.xcconfig"; path = "Target Support Files/Pods-WasteSorter/Pods-WasteSorter.release.xcconfig"; sourceTree = "<group>"; };
 		8CA4A4446983C7E171819E78 /* Pods_WasteSorter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WasteSorter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEED0FCF2022857E00A86A33 /* WasteSorter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WasteSorter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,9 +129,6 @@
 		AEED0FC62022857E00A86A33 = {
 			isa = PBXGroup;
 			children = (
-				7E8F036E285D1A3E00CBBD8F /* info.png */,
-				7E8F036C285D1A3100CBBD8F /* info1.png */,
-				7E8F036A285D1A1700CBBD8F /* info.png */,
 				AEED0FD12022857E00A86A33 /* WasteSorter */,
 				AEED0FD02022857E00A86A33 /* Products */,
 				86E8220EEE0BDEDA756C58AA /* Pods */,
@@ -252,8 +244,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E8F036F285D1A3E00CBBD8F /* info.png in Resources */,
-				7E8F036D285D1A3100CBBD8F /* info1.png in Resources */,
 				AEED0FE02022857F00A86A33 /* LaunchScreen.storyboard in Resources */,
 				7E888F382420135900CF6B5E /* EarthRedOrange.gif in Resources */,
 				AEED0FDD2022857F00A86A33 /* Assets.xcassets in Resources */,

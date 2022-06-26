@@ -21,7 +21,7 @@ class IntroOneVC: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        var touch: UITouch? = touches.first
+        let touch: UITouch? = touches.first
         if touch?.view != self.tutorialView {
             weak var parentController = self.presentingViewController
             self.dismiss(animated: true, completion: {
